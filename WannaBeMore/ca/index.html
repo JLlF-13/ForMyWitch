@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>My witch 💜</title>
+  <style>
+    body {
+      margin: 5;
+      padding: 5;
+      background: #c471f5;
+      font-family: Georgia, serif;
+      text-align: center;
+      color: #fff;
+      overflow: hidden;
+    }
+
+    h1 {
+      margin-top: 40px;
+      font-size: 3em;
+      animation: aparecer 2s ease-in-out;
+    }
+
+    #corazon {
+      font-size: 3em;
+      animation: latido 1s infinite;
+      margin-top: 5px;
+      color: #ffb6c1;
+    }
+
+    #mensaje {
+      font-size: 1.2em;
+      margin: 20px auto;
+      opacity: 0;
+      transition: opacity 2s ease-in-out;
+      line-height: 1.6; 
+      max-width: 1050px;
+      background: rgba(255, 255, 255, 0.1);
+      border: 3px solid #e0aaff;
+      border-radius: 15px;
+      padding: 20px;
+      box-shadow: 0 0 20px #e0aaff;
+      text-align: justify;
+      animation: brillo 3s infinite alternate;
+    }
+
+    button {
+      margin-top: 20px;
+      padding: 15px 30px;
+      font-size: 1em;
+      background-color: #a64ac9;
+      border: none;
+      border-radius: 10px;
+      color: white;
+      cursor: pointer;
+      animation: aparecer 3s ease-in-out;
+    }
+
+    button:hover {
+      background-color: #8e2de2;
+    }
+
+    @keyframes latido {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.2); }
+    }
+
+    @keyframes aparecer {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes brillo {
+      from { box-shadow: 0 0 10px #e0aaff; border-color: #e0aaff; }
+      to { box-shadow: 0 0 25px #ffb6f9; border-color: #ffb6f9; }
+    }
+
+     @media (max-width: 600px) {
+      h1 {
+        font-size: 2em;
+        margin-top: 20px;
+      }
+
+      #corazon {
+        font-size: 3em;
+      }
+
+      #mensaje {
+        font-size: 1em;
+        padding: 15px;
+      }
+
+      button {
+        padding: 10px 20px;
+        font-size: 0.9em;
+      }
+    }
+  </style>
+  <script src="https://cdn.jsdelivr.net/npm/js-confetti@latest/dist/js-confetti.browser.js"></script>
+</head>
+<body>
+    <h1>Hola, Bruixeta 🪄</h1>
+    <div id="corazon">💜</div>
+    <button onclick="mostrarMensaje()">💫</button>
+    <div id="mensaje">
+        Dalila, <br><br>
+        Crec que no hi ha prou paraules per definir tot el que sento per tu, però aquí t’ho explico una mica: <br><br>
+        M'encanta que siguis tan passional i dedicada; el teu riure, el teu parlar i la forma de fer les coses em cautiven. <br>
+        M’has acceptat tal com sóc, i cada dia vols comprendre’m més. No hi ha prou paraules per descriure com em fa sentir això. <br>
+        Em calmes quan estic nerviós, em cuides quan estic malament, em fas riure quan més ho necessit. <br>
+        He fet i sentit coses que mai hauria pensat que arribaria a fer o sentir, i t’ho agraeixo molt. <br><br>
+        Ets perfecta per a mi. No et puc prometre moltes coses, però sí moltes altres. <br>
+        Per això et deman, Dalila: <br><br>
+        <b>T’agradaria sortir amb mi i, si pot ser, passar tota la vida junts?</b>
+    </div>
+
+    <script>
+        const jsConfetti = new JSConfetti();
+
+        function mostrarMensaje() {
+          document.getElementById("mensaje").style.opacity = 1;
+
+          // Lanzar confeti mágico
+          jsConfetti.addConfetti({
+            emojis: ['💜', '💫', '✨', '🏹','💙'],
+            emojiSize: 40,
+            confettiNumber: 40,
+          });
+        }
+    </script>
+</body>
+</html>
