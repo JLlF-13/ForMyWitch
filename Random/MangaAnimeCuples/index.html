@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+  <meta charset="UTF-8" />
+  <title>Collage Manga</title>
+
+  <style>
+    html, body {
+      height: 100%;
+      margin: 0;
+      overflow: hidden; /* 🔴 elimina scroll */
+    }
+
+    body {
+      background: #69359C;
+      font-family: "Georgia", serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .collage-wrapper {
+      background: rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(6px);
+      padding: 14px;
+      border-radius: 18px;
+      width: 95vw;
+      height: 95vh; /* 🔴 tot dins pantalla */
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.45);
+      border: 2px solid rgba(255, 255, 255, 0.15);
+      box-sizing: border-box;
+      display: flex;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      width: 100%;
+      height: 100%;
+    }
+
+    .panel {
+      background: #2a1b3d;
+      border-radius: 14px;
+      border: 2px solid rgba(255, 255, 255, 0.25);
+      box-shadow: 0 6px 16px rgba(0,0,0,0.45);
+      padding: 6px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    .panel.large {
+      grid-column: span 2;
+      grid-row: span 2;
+    }
+
+    .panel img {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain; /* 🔴 no es talla */
+      border-radius: 10px;
+    }
+
+    /* Mòbil */
+    @media (max-width: 700px) {
+      .grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .panel.large {
+        grid-column: span 2;
+        grid-row: span 1;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="collage-wrapper">
+    <div class="grid">
+
+      <div class="panel large">
+        <img src="TFFBWD.png">
+      </div>
+
+      <div class="panel">
+        <img src="DIF.jpg">
+      </div>
+
+      <div class="panel">
+        <img src="./BB.jpg">
+      </div>
+
+      <div class="panel">
+        <img src="DDD.jpg">
+      </div>
+
+      <div class="panel">
+        <img src="MM.jpg">
+      </div>
+
+      <div class="panel">
+        <img src="H.jpg">
+      </div>
+
+    </div>
+  </div>
+</body>
+</html>
