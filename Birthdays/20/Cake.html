@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>19🩵</title>
+    <script src="https://cdn.jsdelivr.net/npm/js-confetti@latest/dist/js-confetti.browser.js"></script>
+    <style>
+        body{
+            background-color: #69359C;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .bt{
+            position: relative;
+            top: 20px;
+        }
+        .holder{
+            position: absolute;
+            width: 350px;
+            height: 20px;
+            border-radius: 100px;
+            background-color: #212f3c;
+            left: -140px;
+            top: 10px;
+        }
+        .holder::before{
+            content: "";
+            position: absolute;
+            width: 100px;
+            height: 150px;
+            background-color: #cacfd2;
+            left: 130px;
+            top:20px;
+        }
+        .holder::after{
+            content: "";
+            position: absolute;
+            background-color: #69359C;
+            width: 100px;
+            height: 135px;
+            border-radius: 30px 30px 0 0;
+            left: 65px;
+            top: 20px;
+            box-shadow: 125px 0 #69359C;
+        }
+        .shadow{
+            position: absolute;
+            width: 350px;
+            height: 20px;
+            border-radius: 50%;
+            top: 170px;
+            left: -135px;
+            background-color: rgba(0,0,0,0.095);
+            z-index: 1;
+        }
+        .shadow::before{
+            content: "";
+            position: absolute;
+            background-color: #cacfd2;
+            width: 150px;
+            height: 20px;
+            border-radius: 20px;
+            top: -10px;
+            left: 96px;
+        }
+        .cake{
+            position: absolute;
+            overflow: hidden;
+            width: 275px;
+            height: 140px;
+            background-color: #fad7a0;
+            top: -130px;
+            left: -101px;
+            border-radius: 30px 30px 0 0;
+        }
+        .cake::before{
+            content: "";
+            position: absolute;
+            background-color: #935116;
+            width: 275px;
+            height: 15px;
+            top: 75px;
+            box-shadow: 0 30px #935116;
+        }
+        .cake::after{
+            content: "";
+            position: absolute;
+            background-color: #573612;
+            width: 275px;
+            height: 40px;
+            box-shadow:inset 0 10px rgb(0,0,0,0.07);
+        }
+        .choco{
+            position: absolute;
+            background-color: #573612;
+            width: 25px;
+            height: 45px;
+            top: 25px;
+            left: 0;
+            z-index: 2;
+            border-radius: 50px;
+            box-shadow: 25px 2px #fad7a0, 50px -10px #573612, 75px -5px #fad7a0, 100px 3px #573612, 125px 0 #fad7a0, 150px -5px #573612, 175px 3px #fad7a0, 200px -5px #573612, 225px -10px  #fad7a0, 250px 4px #573612;
+        }
+        .candle{
+            position: absolute;
+            width: 15px;
+            height: 70px;
+            background-color: white;
+            top: -200px;
+            left: 30px;
+            box-shadow: inset 0 -10px #e74c3c;
+        }
+        .candle::before{
+            content: "";
+            position: absolute;
+            width: 15px;
+            height: 15px;
+            background-color: #e74c3c; 
+            top: 10px;
+            box-shadow: 0 25px #e74c3c;
+        }
+        .candle::after{
+            content: "";
+            position: absolute;
+            width: 2px;
+            height: 15px;
+            background-color: black;
+            top: -15px;
+            left: 6px;
+        }
+        .flame{
+            position: absolute;
+            background-color: #f4d03f;
+            opacity: 0.9;
+            box-shadow: inset 0 -5px 5px #d35400, 5px -5px 20px #fbffa3;
+            background-color: #f4d03f;
+            width: 20px;
+            height: 30px;
+            top: -240px;
+            border-radius: 50%;
+            left:26.5px;
+            animation: flame 0.5 infinite;
+        }
+        @keyframes flame{
+            from, to{transform: scale(1,1);}
+            25% {transform: scale(0.9,1.1);}
+            50% {transform: scale(1.1,0.9);}
+            75% {transform: scale(0.95,1.05);}
+        }
+        canvas {
+            position: fixed !important;
+            top: 0;
+            left: 0;
+            z-index: 9999 !important;
+            pointer-events: none;
+        }
+        canvas {
+            width: 100vw !important;
+            height: 100vh !important;
+        }
+    </style>
+</head>
+<body>
+    <div class="bt">
+        <div class="curved-text">Feliç aniversari</div>
+        <div class="holder"></div>
+        <div class="shadow"></div>
+        <div class="cake">
+            <div class="choco"></div>
+        </div>
+        <div class="candle"></div>
+        <div class="flame"></div>
+    </div>
+    <script>
+        
+        const confettiCanvas = document.createElement('canvas');
+        document.body.appendChild(confettiCanvas);
+
+        const jsConfetti = new JSConfetti({ canvas: confettiCanvas });
+
+        window.addEventListener('DOMContentLoaded', () => {
+            setTimeout(() => {
+                jsConfetti.addConfetti({
+                    emojis: ['💜', '🎉', '🎁', '🪄', '🎂', '💫','🐈‍⬛'],
+                    emojiSize: 50,
+                    confettiNumber: 250,
+                });
+            }, 2000);
+        });
+    </script>
+</body>
+</html>
