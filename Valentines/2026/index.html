@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valentines 2026 💜</title>
+    <style>
+        body{
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #0b1522;
+        }
+
+        .heart{
+            position: relative;
+            height: 70px;
+            width: 70px;
+            background: #69359C; 
+            transform: rotate(-45deg);
+            box-shadow: -10px 10px 90px #69359C;
+            animation: v 1.5s linear infinite;
+        }
+
+        @keyframes v{
+            0%{
+              transform: rotate(-45deg) scale(1.07);  
+            }
+            80%{
+              transform: rotate(-45deg) scale(1);  
+            }
+            100%{
+              transform: rotate(-45deg) scale(0.8);  
+            }
+        }
+
+        .heart::before{
+            content: '';
+            position: absolute;
+            height: 70px;
+            width: 70px;
+            background: #69359C;
+            top: -50%;
+            border-radius: 50px;
+            box-shadow: -10px -10px 90px #69359C;
+        }
+
+        .heart::after{
+            content: '';
+            position: absolute;
+            height: 70px;
+            width: 70px;
+            background: #69359C;
+            right: -50%;
+            border-radius: 50px;
+            box-shadow: 10px 10px 90px #69359C;
+        }
+    </style>
+</head>
+<body>
+    <div class="heart"></div>
+</body>
+</html>
