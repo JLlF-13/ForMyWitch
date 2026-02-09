@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Valentines 2026 💜</title>
+
     <style>
         body{
             margin: 0;
@@ -13,8 +14,10 @@
             align-items: center;
             justify-content: center;
             background: #0b1522;
+            overflow: hidden;
         }
 
+        /* COR CENTRAL */
         .heart{
             position: relative;
             height: 70px;
@@ -26,41 +29,94 @@
         }
 
         @keyframes v{
-            0%{
-              transform: rotate(-45deg) scale(1.07);  
-            }
-            80%{
-              transform: rotate(-45deg) scale(1);  
-            }
-            100%{
-              transform: rotate(-45deg) scale(0.8);  
-            }
+            0%{ transform: rotate(-45deg) scale(1.07); }
+            80%{ transform: rotate(-45deg) scale(1); }
+            100%{ transform: rotate(-45deg) scale(0.8); }
         }
 
-        .heart::before{
-            content: '';
-            position: absolute;
-            height: 70px;
-            width: 70px;
-            background: #69359C;
-            top: -50%;
-            border-radius: 50px;
-            box-shadow: -10px -10px 90px #69359C;
-        }
-
+        .heart::before,
         .heart::after{
             content: '';
             position: absolute;
             height: 70px;
             width: 70px;
             background: #69359C;
-            right: -50%;
             border-radius: 50px;
+        }
+
+        .heart::before{
+            top: -50%;
+            box-shadow: -10px -10px 90px #69359C;
+        }
+
+        .heart::after{
+            right: -50%;
             box-shadow: 10px 10px 90px #69359C;
+        }
+
+        /* TEXT */
+        .titol {
+            position: absolute;
+            top: 75%;
+            width: 100%;
+            text-align: center;
+            font-size: 2rem;
+            color: #e6ccff;
+            font-family: Arial, sans-serif;
+            text-shadow: 0 0 10px #69359C;
+            animation: flot 3s ease-in-out infinite;
+        }
+
+        @keyframes flot {
+            0% { transform: translateY(0); }
+            50% { transform: translateY(-8px); }
+            100% { transform: translateY(0); }
+        }
+
+        /* PLUJA DE CORS NATURAL */
+        .cor {
+            position: fixed;
+            top: -10vh;
+            font-size: calc(45px + 35 * var(--s));
+            left: calc(100vw * var(--x));
+            animation: fall linear infinite;
+            opacity: 0.9;
+        }
+
+        @keyframes fall {
+            0% {
+                transform: translateY(0) translateX(0);
+            }
+            100% {
+                transform: translateY(120vh) translateX(calc(40px * var(--w)));
+            }
         }
     </style>
 </head>
+
 <body>
+
     <div class="heart"></div>
+
+    <h1 class="titol">Happy Valentine’s Day</h1>
+
+    <span class="cor" style="--x:0.05; --s:0.3; --w:-1; animation-duration:5s;">💜</span>
+    <span class="cor" style="--x:0.12; --s:0.4; --w:1; animation-duration:6s;">🪄</span>
+    <span class="cor" style="--x:0.18; --s:0.2; --w:-0.5; animation-duration:4.5s;">🏹</span>
+    <span class="cor" style="--x:0.25; --s:0.5; --w:1; animation-duration:7s;">💙</span>
+    <span class="cor" style="--x:0.32; --s:0.35; --w:-1; animation-duration:5.8s;">🌹</span>
+
+    <span class="cor" style="--x:0.40; --s:0.25; --w:0.8; animation-duration:6.5s;">🏹</span>
+    <span class="cor" style="--x:0.48; --s:0.45; --w:-0.7; animation-duration:5.2s;">💜</span>
+    <span class="cor" style="--x:0.55; --s:0.3; --w:1; animation-duration:6.8s;">🪄</span>
+    <span class="cor" style="--x:0.62; --s:0.4; --w:-1; animation-duration:4.7s;">🌹</span>
+    <span class="cor" style="--x:0.70; --s:0.2; --w:0.6; animation-duration:7.2s;">💙</span>
+
+    <span class="cor" style="--x:0.78; --s:0.5; --w:-0.9; animation-duration:5.9s;">🪄</span>
+    <span class="cor" style="--x:0.85; --s:0.3; --w:1; animation-duration:6.3s;">🌹</span>
+    <span class="cor" style="--x:0.90; --s:0.35; --w:-1; animation-duration:4.9s;">💙</span>
+    <span class="cor" style="--x:0.95; --s:0.25; --w:0.7; animation-duration:6.7s;">💜</span>
+    <span class="cor" style="--x:0.50; --s:0.45; --w:-0.4; animation-duration:7.5s;">🏹</span>
+
 </body>
 </html>

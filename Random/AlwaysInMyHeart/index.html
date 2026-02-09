@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Always In My Heart</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        html, body {
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            font-family: "Georgia", serif;
+            color: white;
+        }
+
+        body {
+            background: linear-gradient(135deg, #0a1a40, #4b0082);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .carta {
+            width: 95%;
+            max-width: 1250px;
+            max-height: 95vh;
+            background: rgba(255, 255, 255, 0.12);
+            padding: 25px 30px;
+            border-radius: 15px;
+            backdrop-filter: blur(6px);
+            box-shadow: 0 0 20px rgba(0,0,0,0.4);
+            overflow: hidden; 
+        }
+
+        h1 {
+            text-align: center;
+            margin: 8px 0;
+            font-size: 24px;
+        }
+
+        p {
+            font-size: 14.5px;
+            line-height: 1.55;
+            white-space: pre-line;
+        }
+
+        .firma {
+            margin-top: 10px;
+            font-style: italic;
+            text-align: right;
+        }
+
+        @media (max-width: 480px) {
+            h1 { font-size: 19px; }
+            p { font-size: 13px; }
+            .carta { padding: 18px; }
+        }
+    </style>
+</head>
+
+<body>
+
+<audio id="bgmusic" loop>
+    <source src="Music/Anytime Anywhere JAP.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+    const audio = document.getElementById("bgmusic");
+    audio.volume = 0;
+
+    function startMusic() {
+        audio.play().catch(() => {});
+        let vol = 0;
+        const fade = setInterval(() => {
+            if (vol < 0.2) {
+                vol += 0.02;
+                audio.volume = vol;
+            } else {
+                clearInterval(fade);
+            }
+        }, 200);
+
+        document.removeEventListener("click", startMusic);
+        document.removeEventListener("touchstart", startMusic);
+    }
+
+    document.addEventListener("click", startMusic);
+    document.addEventListener("touchstart", startMusic);
+</script>
+
+<div class="carta">
+    <h1>Per a la Princesa del meu Cor, Dalila Martí Caramés</h1>
+    <h1>💜🪄🏹💙💫</h1>
+
+    <p>
+Hola o adéu, depèn de com ho vegis.
+Com saps, me’n vaig a fer fora de pràctiques i no només deixo enrere, de nou, allà on he crescut i après tant una altra vegada; ara també hi deixo la persona que més impacte ha tingut en mi, la persona que estim i la persona amb qui vull estar.
+
+Dalila, perdó per anar-me’n. Sé que no m’aturaràs, però ni res d’això.
+T’estim amb bogeria i perdó per tot el fet i no fet, perdó per tot el dit i no dit. Me’n vaig sabent que potser, quan ens tornem a veure, ja no serem els mateixos i no sé si sentirem el mateix.
+
+M’encantaria demanar-te tornar, però no està en el meu dret i també sé que no és el que tu necessites. Des del dia que ens vam reconciliar estic amb el dubte de si anar-me’n o quedar-me; per molt que estigui bé a Barcelona, tu no hi ets.
+
+Òbviament et continuaré escrivint i fent coses perquè m’encantes i m’encanta fer-t’ho. Si algun dia vens, avisa’m i quedem per fer coses, anar de compres, fer una volta o el que et vengui de gust.
+
+Sempre que vengui a passar uns dies et diré de quedar, perquè no vull oblidar el teu somriure tan polit, el teu parlar tan calmador i el teu tacte tan suau.
+
+Si sorgeix alguna cosa urgent, em truques, i si fa falta venc. No has de passar les coses dolentes tota sola. No vull ser pesat, però tant de bo en un futur siguis tu la mare dels meus fills i l’àvia dels meus nets.
+
+Mentre t’escric aquest missatge em venen ganes de plorar només de pensar que no et veuré en molt de temps. Seràs més que inoblidable per a mi.
+    </p>
+
+    <p class="firma">
+        Atentament,<br>
+        la persona que t’estima amb bogeria fins al final dels temps,<br>
+        <b>Joan Lluch Fonoll</b>
+    </p>
+</div>
+
+</body>
+</html>
