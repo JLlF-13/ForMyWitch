@@ -34,7 +34,6 @@
             padding: 35px;
             border-radius: 25px;
             width: 400px;
-            text-align: center;
             box-shadow: 0 6px 25px rgba(0,0,0,0.25);
         }
 
@@ -91,8 +90,11 @@
         }
     </style>
 </head>
+
 <body>
+
     <h1>Melodyes Player 💜</h1>
+
     <div class="player">
         <h2 id="title">Choose a Song 💜</h2>
 
@@ -122,6 +124,79 @@
         </div>
     </div>
 
-    <script src="main.js"></script>
+    <!-- JS INTEGRADO -->
+    <script>
+        const audio = document.getElementById('audio');
+        const playBtn = document.getElementById('play');
+        const progress = document.getElementById('progress');
+        const selector = document.getElementById('songSelector');
+        const title = document.getElementById('title');
+
+        let playlist = [];
+        let index = 0;
+
+        function formatTime(seconds) {
+            const m = Math.floor(seconds / 60);
+            const s = Math.floor(seconds % 60);
+            return `${m}:${s < 10 ? '0' : ''}${s}`;
+        }
+
+        selector.addEventListener('change', () => {
+            if (selector.value !== "") {
+                playlist = Array.from(selector.options)
+                    .filter(opt => opt.value !== "")
+                    .map(opt => opt.value);
+
+                index = playlist.indexOf(selector.value);
+                loadSong();
+                audio.play();
+                updatePlayIcon();
+            }
+        });
+
+        function loadSong() {
+            audio.src = playlist[index];
+            title.textContent = playlist[index].split("/").pop();
+            selector.value = playlist[index];
+        }
+
+        function updatePlayIcon() {
+            playBtn.innerHTML = audio.paused
+                ? '<i class="fa-solid fa-play"></i>'
+                : '<i class="fa-solid fa-pause"></i>';
+        }
+
+        playBtn.addEventListener('click', () => {
+            audio.paused ? audio.play() : audio.pause();
+            updatePlayIcon();
+        });
+
+        audio.addEventListener('timeupdate', () => {
+            if (audio.duration) {
+                progress.value = (audio.currentTime / audio.duration) * 100;
+                document.getElementById('current').textContent = formatTime(audio.currentTime);
+                document.getElementById('duration').textContent = formatTime(audio.duration);
+            }
+        });
+
+        progress.addEventListener('input', () => {
+            audio.currentTime = (progress.value / 100) * audio.duration;
+        });
+
+        document.getElementById('next').addEventListener('click', () => {
+            index = (index + 1) % playlist.length;
+            loadSong();
+            audio.play();
+            updatePlayIcon();
+        });
+
+        document.getElementById('prev').addEventListener('click', () => {
+            index = (index - 1 + playlist.length) % playlist.length;
+            loadSong();
+            audio.play();
+            updatePlayIcon();
+        });
+    </script>
+
 </body>
 </html>
