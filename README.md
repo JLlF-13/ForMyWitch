@@ -11,5 +11,8 @@ HTML projects dedicated to meaningful days such as:
 
 - Sant Jordi
 
+## 📄 Writings
+The things I write for her.
+
 ## 🎁 Random Stuff
 Spontaneous things I’ve made simply because she inspires me, because I think of her, and because I want to show how much I want her in my life.
