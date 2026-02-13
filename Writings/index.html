@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Letters for you 💜</title>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500;600&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <h1>Letters for you 💜</h1>
+
+    <div id="contenedor"></div>
+
+    <div id="modal-bg" class="modal-bg">
+        <div class="modal">
+            <span class="cerrar" onclick="cerrarModal()">×</span>
+            <h2 id="modal-titulo"></h2>
+            <p id="modal-texto"></p>
+        </div>
+    </div>
+
+    <script>
+        async function cargarMensajes() {
+            const res = await fetch('writings.json');
+            const data = await res.json();
+            const contenedor = document.getElementById('contenedor');
+
+            data.messages.forEach(msg => {
+                const btn = document.createElement('button');
+                btn.className = 'btn';
+                btn.textContent = msg.title;
+                btn.onclick = () => abrirModal(msg.title, msg.text);
+                contenedor.appendChild(btn);
+            });
+        }
+
+        function abrirModal(titulo, texto) {
+            document.getElementById('modal-titulo').textContent = titulo;
+            document.getElementById('modal-texto').textContent = texto;
+            document.getElementById('modal-bg').style.display = 'flex';
+        }
+
+        function cerrarModal() {
+            document.getElementById('modal-bg').style.display = 'none';
+        }
+
+        cargarMensajes();
+    </script>
+
+</body>
+</html>
