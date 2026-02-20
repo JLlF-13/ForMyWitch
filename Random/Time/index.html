@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Time</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      min-height: 100vh;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top, #6d4aff 0%, #1a0b3d 40%, #030414 85%);
+      color: #eef0ff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 1.5rem;
+    }
+
+    .wrapper {
+      max-width: 850px;
+      width: 100%;
+    }
+
+    .card {
+      background: linear-gradient(145deg, rgba(20, 10, 55, 0.92), rgba(10, 20, 70, 0.95));
+      border-radius: 20px;
+      padding: 2.3rem 2rem;
+      box-shadow:
+        0 0 30px rgba(120, 90, 255, 0.6),
+        0 0 70px rgba(60, 130, 255, 0.45);
+      border: 1px solid rgba(140, 120, 255, 0.55);
+      backdrop-filter: blur(12px);
+    }
+
+    .subtitle {
+      font-size: 0.95rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: #b8c0ff;
+      text-align: center;
+      margin-bottom: 1.2rem;
+    }
+
+    .body-text {
+      line-height: 1.75;
+      font-size: 1.05rem;
+      color: #e7e8ff;
+      text-align: justify;
+      white-space: pre-line;
+    }
+
+    .highlight {
+      color: #c7d2ff;
+      font-weight: 500;
+    }
+
+    .signature {
+      margin-top: 2rem;
+      text-align: right;
+      font-style: italic;
+      color: #c7b9ff;
+    }
+
+    @media (max-width: 600px) {
+      .card {
+        padding: 1.7rem 1.3rem;
+      }
+      .body-text {
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrapper">
+    <div class="card">
+
+      <div class="subtitle">Fi de curs</div>
+
+      <p class="body-text">
+Bé, aquí acaba el curs. Si hagués de definir-lo en una paraula, seria una d’aquestes tres: <span class="highlight">caòtic</span>, <span class="highlight">estrany</span> o <span class="highlight">inesperat</span>.
+
+Ara segurament ja no ens veurem tant, i això en part m’entristeix perquè mai havia connectat amb ningú tal com ho he fet amb tu. Espero que et vagi bé i que, de tant en tant, ens puguem veure. Et continuaré fent HTML i t’escriuré de tant en tant, perquè no vull perdre el contacte amb tu. Espero que tu també em diguis alguna cosa de tant en tant.
+
+Ho he dit moltes vegades, però per mi ets una benedicció de Déu, i et vull cuidar com a tal. Dalila, m’encantes i gràcies per tot el que fas. Per molt que et sembli que no em dones res pel que sents tu, a mi em dones moltíssim: em dones tot un univers de coses que mai havia rebut. Ets una persona meravellosa i et desitjo el millor en tot el que facis.
+
+Gràcies, Dalila. Gràcies per aparèixer a la meva vida i donar-me tant. Ets i sempre seràs la dona dels meus somnis.
+      </p>
+
+      <div class="signature">
+        Amb tot el meu afecte,<br>
+        <span class="highlight">sempre teu</span>
+      </div>
+
+    </div>
+  </div>
+</body>
+</html>

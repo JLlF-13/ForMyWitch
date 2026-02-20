@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Phrases</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      height: 100vh;
+      width: 100vw;
+      overflow: hidden;
+      background: radial-gradient(circle at center, #2b0040 0%, #000 70%);
+      font-family: system-ui, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #e8d4ff;
+    }
+
+    .container {
+      position: relative;
+      width: 100%;
+      height: 100%;
+    }
+
+    .stars {
+      position: absolute;
+      inset: 0;
+      overflow: hidden;
+      z-index: 1;
+    }
+
+    .star {
+      position: absolute;
+      width: 3px;
+      height: 3px;
+      background: radial-gradient(circle, #ffd700 0%, #ffcc33 40%, transparent 70%);
+      border-radius: 50%;
+      opacity: 0.8;
+      animation: twinkle 1.5s infinite ease-in-out, float 6s infinite ease-in-out;
+    }
+
+    @keyframes twinkle {
+      0%, 100% { opacity: 0.3; transform: scale(1); }
+      50% { opacity: 1; transform: scale(1.9); }
+    }
+
+    @keyframes float {
+      0% { transform: translateY(0px); }
+      50% { transform: translateY(-8px); }
+      100% { transform: translateY(0px); }
+    }
+
+    .content {
+      position: relative;
+      z-index: 2;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 1.5rem;
+      text-align: center;
+    }
+
+    button {
+      padding: 0.9rem 2rem;
+      font-size: 1.1rem;
+      border-radius: 999px;
+      border: 1px solid #b46cff;
+      background: linear-gradient(135deg, #b46cff, #7a2cff);
+      color: #fff;
+      cursor: pointer;
+      box-shadow: 0 0 12px rgba(180, 108, 255, 0.6);
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+    }
+
+    button:active {
+      transform: scale(0.95);
+      box-shadow: 0 0 4px rgba(180, 108, 255, 0.4);
+    }
+
+    #phrase {
+      margin-top: 1.5rem;
+      font-size: 1.3rem;
+      min-height: 2.5rem;
+      color: #ffdfff;
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+
+    .drop {
+      animation: dropDown 0.6s ease forwards;
+    }
+
+    @keyframes dropDown {
+      0% { opacity: 0; transform: translateY(-20px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <div class="stars" id="stars"></div>
+
+    <div class="content">
+      <button id="btn">Mostrar frase</button>
+      <div id="phrase"></div>
+    </div>
+  </div>
+
+  <script>
+    // Crear estrellas mejoradas
+    function createStars(count = 200) {
+      const starsContainer = document.getElementById("stars");
+      const { innerWidth: w, innerHeight: h } = window;
+
+      starsContainer.innerHTML = "";
+
+      for (let i = 0; i < count; i++) {
+        const star = document.createElement("div");
+        star.classList.add("star");
+
+        const x = Math.random() * w;
+        const y = Math.random() * h;
+        const delay = Math.random() * 2;
+        const duration = 1 + Math.random() * 2;
+        const size = 1 + Math.random() * 3;
+
+        star.style.left = x + "px";
+        star.style.top = y + "px";
+        star.style.width = size + "px";
+        star.style.height = size + "px";
+        star.style.animationDelay = delay + "s";
+        star.style.animationDuration = duration + "s";
+
+        starsContainer.appendChild(star);
+      }
+    }
+
+    const phrases = [
+        "Em caus malament.",
+        "Ets l’estrella que brilla més.",
+        "M'encantes.",
+        "Ets més que única.",
+        "Ets una fora de sèrie.",
+        "Ets la meva bruixa preferida.",
+    ];
+
+
+    function getRandomPhrase() {
+      return phrases[Math.floor(Math.random() * phrases.length)];
+    }
+
+    window.addEventListener("load", createStars);
+    window.addEventListener("resize", createStars);
+
+    const btn = document.getElementById("btn");
+    const phraseEl = document.getElementById("phrase");
+
+    btn.addEventListener("click", () => {
+      phraseEl.classList.remove("drop");
+      void phraseEl.offsetWidth; 
+      phraseEl.textContent = getRandomPhrase();
+      phraseEl.classList.add("drop");
+    });
+  </script>
+
+</body>
+</html>
