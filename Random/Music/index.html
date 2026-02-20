@@ -244,6 +244,12 @@
             audio.play();
             updatePlayIcon();
         });
+        audio.addEventListener('ended', () => {
+            index = (index + 1) % playlist.length; 
+            loadSong();
+            audio.play();
+            updatePlayIcon();
+        });
     </script>
 </body>
 </html>
