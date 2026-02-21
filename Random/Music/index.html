@@ -112,6 +112,22 @@
                 font-size: 18px;
             }
         }
+
+        .volume-container {
+            margin-top: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 16px;
+            font-weight: 600;
+            color: #e0b3ff;
+        }
+
+        #volume {
+            accent-color: #c77dff;
+            width: 150px;
+        }
+
     </style>
 </head>
 <body>
@@ -122,13 +138,13 @@
 
         <select id="songSelector">
             <option value="">-- 💜 --</option>
-            <option value="Files/A Thousand Years.mp3">A Thousand Years</option> 
+            <!--<option value="Files/A Thousand Years.mp3">A Thousand Years</option>--> 
             <option value="Files/Beautiful Colors.mp3">Beautiful Colors</option> 
             <option value="Files/Can't Let You Go.mp3">Can't Let You Go</option> 
             <option value="Files/Celestial.mp3">Celestial</option> 
             <option value="Files/COM EL DIA I LA NIT.mp3">Com el Dia i la Nit</option> 
-            <option value="Files/DEATH WON'T DO US PART.mp3">Death Won't Do Us Part</option> 
-            <option value="Files/Do I Wanna Know.mp3">Do I Wanna Know?</option> 
+            <!--<option value="Files/DEATH WON'T DO US PART.mp3">Death Won't Do Us Part</option>--> 
+            <!--<option value="Files/Do I Wanna Know.mp3">Do I Wanna Know?</option>--> 
             <option value="Files/El Fin del Mundo.mp3">El Fin del Mundo</option> 
             <option value="Files/El Principio de algo.mp3">El Principio de Algo</option> 
             <option value="Files/Feeling Good.mp3">Feeling Good</option> 
@@ -138,7 +154,7 @@
             <option value="Files/Hopeless Romantic.mp3">Hopeless Romantic</option>  
             <option value="Files/I Really Want to Stay at Your House.mp3">I Really Want to Stay at Your House</option> 
             <option value="Files/Kiss of Death.mp3">Kiss of Death</option> 
-            <option value="Files/LET THE WORLD BURN.mp3">Let the World Burn</option> 
+            <!--<option value="Files/LET THE WORLD BURN.mp3">Let the World Burn</option>--> 
             <option value="Files/Loafers.mp3">Loafers</option> 
             <option value="Files/Love Again.mp3">Love Again</option> 
             <option value="Files/LoveSick.mp3">LoveSick</option> 
@@ -152,8 +168,8 @@
             <option value="Files/Snowman.mp3">Snowman</option> 
             <option value="Files/SORT DE TU.mp3">Sort de Tu</option> 
             <option value="Files/TOCA.mp3">Toca</option> 
-            <option value="Files/Una boda en Las Vegas.mp3">Una Boda en Las Vegas</option> 
-            <option value="Files/undressed.mp3">Undressed</option> 
+            <!--<option value="Files/Una boda en Las Vegas.mp3">Una Boda en Las Vegas</option>--> 
+            <!--<option value="Files/undressed.mp3">Undressed</option>--> 
             <option value="Files/Vull Estar amb Tu.mp3">Vull Estar amb Tu</option>
         </select>
 
@@ -171,15 +187,29 @@
             <span id="current">0:00</span>
             <span id="duration">0:00</span>
         </div>
+
     </div>
 
+    <div class="volume-container">
+        <label for="volume">Volume: </label>
+        <span id="volumeValue">25%</span>
+        <input type="range" id="volume" min="0" max="100" value="25">
+    </div>
+
+
     <script>
+        
+
         const audio = document.getElementById('audio');
         const playBtn = document.getElementById('play');
         const progress = document.getElementById('progress');
         const selector = document.getElementById('songSelector');
         const title = document.getElementById('title');
-
+        const volume = document.getElementById('volume');
+        const volumeValue = document.getElementById('volumeValue');
+        
+        audio.volume = 0.25; 
+        volume.value = 25;
         let playlist = [];
         let index = 0;
 
@@ -250,6 +280,13 @@
             audio.play();
             updatePlayIcon();
         });
+
+        volume.addEventListener('input', () => {
+            audio.volume = volume.value / 100;
+            volumeValue.textContent = volume.value + "%";
+        });
+
+
     </script>
 </body>
 </html>
